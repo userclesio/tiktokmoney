@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TikTok Reward Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="header">
+        <a href='https://postimages.org/' target='_blank' rel='noopener noreferrer' class="logo-link"><img src='https://i.postimg.cc/ZKhds9XP/Tik-Tok-logo-RGB-Horizontal-black-1066x440.png' border='0' alt='Tik-Tok-logo-RGB-Horizontal-black-1066x440'></a>
+        <p class="balance" aria-live="polite">Balance: <span id="balanceValue">0</span> USD</p>
+      </header>
+
+      <section id="ageView" class="view active" aria-label="Age verification">
+        <article class="card age-card">
+          <div class="age-badge" aria-hidden="true"><span>18+</span></div>
+          <h2>Age Verification Required</h2>
+          <p>This quiz is intended for adults only. You must be <strong>18 years or older</strong> to participate.</p>
+          <p class="age-note">By clicking "I'm 18 or older", you confirm that you meet the minimum age requirement.</p>
+          <button id="ageConfirmBtn" type="button" class="btn">I'm 18 or older — Start Quiz</button>
+          <button id="ageDenyBtn" type="button" class="btn btn-ghost">I'm under 18 — Exit</button>
+        </article>
+      </section>
+
+      <section id="quizView" class="view" aria-label="Quiz screen" aria-hidden="true">
+        <div class="progress-wrap">
+          <p id="progressText" class="progress-text">Question 1 of 6</p>
+          <div
+            class="progress-bar"
+            role="progressbar"
+            aria-label="Quiz progress"
+            aria-valuemin="1"
+            aria-valuemax="6"
+            aria-valuenow="1"
+          >
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <article class="card">
+          <h2 id="questionText" class="question-title"></h2>
+
+          <fieldset id="optionsContainer" class="options" aria-describedby="errorText">
+            <legend class="sr-only">Select one answer</legend>
+          </fieldset>
+          <p id="errorText" class="error" role="alert" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <section id="doneView" class="view" aria-label="Completion screen" aria-hidden="true">
+        <article class="card done-card">
+          <h2>Research completed!</h2>
+          <p>Thank you for participating!</p>
+
+          <div class="total-box">
+            <p class="total-label">Your total balance</p>
+            <p id="doneTotalValue" class="total-value">213</p>
+            <p class="total-currency">USD</p>
+          </div>
+
+          <button id="withdrawBtn" type="button" class="btn">Withdraw Money</button>
+        </article>
+      </section>
+
+      <section id="finalView" class="view" aria-label="Final screen" aria-hidden="true">
+        <article class="card final-card">
+          <h2>Congratulations on your balance! Here's how to receive it:</h2>
+
+          <div class="player-wrap">
+            <vturb-smartplayer id="vid-69ca3a0ea78f10ae44da0a37" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
+            <script type="text/javascript">
+              var s=document.createElement("script");
+              s.src="https://scripts.converteai.net/f9aaec28-5033-496c-9a78-b89a490b3aef/players/69ca3a0ea78f10ae44da0a37/v4/player.js",
+              s.async=!0,document.head.appendChild(s);
+            </script>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <div id="rewardModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalBody">
+      <div class="modal-card">
+        <div class="victory-graphic" aria-hidden="true">
+          <span class="victory-check"></span>
+        </div>
+        <h3 id="modalTitle">Reward unlocked!</h3>
+        <p id="modalBody">You earned +0 USD!</p>
+      </div>
+    </div>
+
+    <footer class="footer">Rewards are part of a research simulation.</footer>
+
+    <audio id="questionClickSound" preload="auto">
+      <source src="sounds/dinheiro.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
