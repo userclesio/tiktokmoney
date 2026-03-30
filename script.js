@@ -205,7 +205,25 @@ document.addEventListener("keydown", (event) => {
 
 withdrawBtn.addEventListener("click", () => {
   setView(finalView);
+  loadVSL();
 });
+
+let vslLoaded = false;
+function loadVSL() {
+  if (vslLoaded) return;
+  vslLoaded = true;
+
+  const playerWrap = document.getElementById("playerWrap");
+  const player = document.createElement("vturb-smartplayer");
+  player.id = "vid-69ca3a0ea78f10ae44da0a37";
+  player.style.cssText = "display:block;margin:0 auto;width:100%;";
+  playerWrap.appendChild(player);
+
+  const s = document.createElement("script");
+  s.src = "https://scripts.converteai.net/f9aaec28-5033-496c-9a78-b89a490b3aef/players/69ca3a0ea78f10ae44da0a37/v4/player.js";
+  s.async = true;
+  document.head.appendChild(s);
+}
 
 const ageConfirmBtn = document.getElementById("ageConfirmBtn");
 const ageDenyBtn = document.getElementById("ageDenyBtn");
